@@ -2,7 +2,7 @@
 
 /* this exercise has 0 distractors */
 
-function addArrays(array1, array2) {
+export function addArrays(array1, array2) {
     var len = array1.length;
 
     if (len === array2.length) {
@@ -11,7 +11,7 @@ function addArrays(array1, array2) {
         }
 
         return array1;
+    } else {
+        throw new Error();
     }
-
-    throw new Error();
 }

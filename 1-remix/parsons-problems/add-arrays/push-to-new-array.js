@@ -2,7 +2,7 @@
 
 /* this exercise has 0 distractors */
 
-function addArrays(arr1, arr2) {
+export function addArrays(arr1, arr2) {
     if (arr1.length != arr2.length) {
         throw new Error("You done goof'd");
     }
