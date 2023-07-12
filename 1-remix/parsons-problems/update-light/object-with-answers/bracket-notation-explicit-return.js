@@ -2,13 +2,10 @@
 
 /* this exercise has 1 distractor */
 
-const updateLight = (current) => {
+export const updateLight = (current) => {
   return {
     green: 'yellow',
     yellow: 'red',
     red: 'green',
   }[current];
 };
-
-
-const updateLight = (current) => // distractor

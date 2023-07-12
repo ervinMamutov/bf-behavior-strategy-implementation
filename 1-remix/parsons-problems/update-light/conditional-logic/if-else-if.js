@@ -2,7 +2,7 @@
 
 /* this exercise has 2 distractors */
 
-function updateLight(current) {
+export function updateLight(current) {
   if (current === 'green') {
     return 'yellow';
   } else if (current === 'yellow') {
@@ -10,7 +10,3 @@ function updateLight(current) {
   }
   return 'green';
 }
-
-
-let updateLight(current) { // distractor
-let updateLight(current) = function { // distractor
