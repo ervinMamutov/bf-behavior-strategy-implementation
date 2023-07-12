@@ -14,7 +14,7 @@
 
 */
 
-const repeatString = (text = '', repetitions = 1) => {
+export const repeatString = (text = '', repetitions = 1) => {
   const finalLength = text.length * repetitions;
   let repeatedText = '';
   while (true) {
@@ -25,8 +25,3 @@ const repeatString = (text = '', repetitions = 1) => {
   }
   return repeatedText;
 };
-
-continue; // distractor
-if (repeatedText.length = finalLength) { // distractor
-while (false) { // distractor
-} // distractor

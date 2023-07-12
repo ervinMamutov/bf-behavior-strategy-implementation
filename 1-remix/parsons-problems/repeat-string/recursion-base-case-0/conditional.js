@@ -17,7 +17,7 @@
 
 */
 
-const repeatString = (text = '', repetitions = 1) => {
+export const repeatString = (text = '', repetitions = 1) => {
   if (repetitions === 0) {
     return '';
   } else {
@@ -26,7 +26,3 @@ const repeatString = (text = '', repetitions = 1) => {
     return text + oneRepetitionShort;
   }
 };
-
-return oneRepetitionShort + text; // distractor
-if (repetitions !== 0) { // distractor
-
