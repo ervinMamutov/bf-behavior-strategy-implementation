@@ -2,8 +2,10 @@
 
 /* this exercise has 3 distractors */
 
-let removeExclamationMarks = (s) => s.replace(/!/g, '');
+export const removeExclamationMarks = (s) => s.replace(/!/g, '');
 
+/*
 let removeExclamationMarks = function(s) { s.replace(/!/g, ''); } // distractor
 let removeExclamationMarks = (s) => { s.replace(/!/g, ''); } // distractor
 let removeExclamationMarks => (s) = s.replace(/!/g, ''); // distractor
+ */
