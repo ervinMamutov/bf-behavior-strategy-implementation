@@ -15,25 +15,31 @@
  */
 
 // -------- your solutions --------
+const booleanToBinary = (a, b) => {
+  return String(Number(a)) + String(Number(b));
+};
 
-for (const solution of [secretSolution]) {
-    // this function only 4 possible combinations of arguments
-    //  it's possible test them all and have 100% confidence in the function
-    describe(solution.name + ': converts two booleans to binary', () => {
-        it('true, true --> "11"', () => {
-            const actual = solution(_, _);
-            expect(actual).toEqual(_);
-        });
-        it('true, false --> "10"', () => {
-            const actual = _;
-            expect(actual).toEqual('10');
-        });
-        it('false, true --> "01"', () => {
-            const actual = _;
-            _;
-        });
-        it('_', () => {});
+for (const solution of [booleanToBinary]) {
+  // this function only 4 possible combinations of arguments
+  //  it's possible test them all and have 100% confidence in the function
+  describe(solution.name + ': converts two booleans to binary', () => {
+    it('true, true --> "11"', () => {
+      const actual = solution(true, true);
+      expect(actual).toEqual('11');
     });
+    it('true, false --> "10"', () => {
+      const actual = solution(true, false);
+      expect(actual).toEqual('10');
+    });
+    it('false, true --> "01"', () => {
+      const actual = solution(false, true);
+      expect(actual).toEqual('01');
+    });
+    it('false, false', () => {
+      const actual = solution(false, false);
+      expect(actual).toEqual('00');
+    });
+  });
 }
 
 // minified solution for testing your tests
