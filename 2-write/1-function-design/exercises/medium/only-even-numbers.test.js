@@ -1,5 +1,3 @@
-// #todo
-
 'use strict';
 
 /**
@@ -10,13 +8,18 @@
  */
 
 // -------- your solutions --------
+const newOddArray = (arrayOfNumbers) => {
+  return arrayOfNumbers.filter((item) => item % 2 === 0);
+};
 
-for (const solution of [secretSolution]) {
-    describe(solution.name + ': _', () => {
-        describe('_', () => {
-            it('_', () => {});
-        });
+for (const solution of [newOddArray]) {
+  describe(solution.name + ': _', () => {
+    describe('delete odd number', () => {
+      it('[1, 2, 3, 4, 5, 6] -> [2, 4, 6]', () => {
+        expect(solution([1, 2, 3, 4, 5, 6])).toEqual([2, 4, 6]);
+      });
     });
+  });
 }
 
 // minified solution for testing your tests

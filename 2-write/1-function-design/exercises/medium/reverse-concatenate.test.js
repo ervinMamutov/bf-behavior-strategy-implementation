@@ -1,5 +1,3 @@
-// #todo
-
 'use strict';
 
 /**
@@ -10,13 +8,18 @@
  */
 
 // -------- your solutions --------
+const reverseJoinArray = (arrayOfStrings) => {
+  return [...arrayOfStrings].reverse().join('');
+};
 
 for (const solution of [secretSolution]) {
-    describe(solution.name + ': _', () => {
-        describe('_', () => {
-            it('_', () => {});
-        });
+  describe(solution.name + ': _', () => {
+    describe('reverse array', () => {
+      it('["q", "w", "e", "r", "t", "y"] - "qwerty"', () => {
+        expect(solution(['q', 'w', 'e', 'r', 't', 'y'])).toEqual('ytrewq');
+      });
     });
+  });
 }
 
 // minified solution for testing your tests
