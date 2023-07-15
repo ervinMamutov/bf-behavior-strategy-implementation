@@ -1,26 +1,26 @@
-'use strict';
+console.time('passingArray');
 
-/**
- * builds an array counting up from 0 to `max`
- * @param {number} [max=0] - the number to count up to
- *  max must be an integer that is greater than 0
- * @returns {number[]} an array of all numbers from 0 to `max`
- */
-
-// -------- your solutions --------
-
-const maxInteger = (max = 0) => {
-  debugger;
-  if (!Number.isInteger(max)) {
-    throw new TypeError('This number is not an integer');
+const passingArray = (arr) => {
+  const newArray = [...arr];
+  const returnArray = [];
+  for (const value of newArray) {
+    for (const key in value) {
+      if (key === 'pass') {
+        if (value[key] === true) {
+          returnArray.push(value);
+        }
+      }
+    }
   }
-
-  const numbers = [];
-
-  for (let i = 0; i > max; i++) {
-    numbers.unshift(i);
-  }
-  return numbers;
+  return returnArray;
 };
+console.timeEnd('passingArray');
+console.log(passingArray([{ pass: true }, { pass: true }]));
 
-console.log(maxInteger(10));
+console.time('passingArray2');
+const passingArray2 = (arr) => {
+  return [...arr].filter((value) => value.pass === true);
+};
+console.timeEnd('passingArray2');
+
+console.log(passingArray2([{ pass: true }, { pass: true }]));

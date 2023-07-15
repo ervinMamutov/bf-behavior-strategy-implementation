@@ -1,12 +1,17 @@
 {
-  "plugins": ["jsdoc", "prefer-arrow", "sonarjs"],
-
+  "plugins": [
+    "jsdoc",
+    "prefer-arrow",
+    "sonarjs"
+  ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "sourceType": "module",
     "requireConfigFile": false,
     "babelOptions": {
-      "presets": ["@babel/preset-env"]
+      "presets": [
+        "@babel/preset-env"
+      ]
     }
   },
   "env": {
@@ -14,7 +19,10 @@
   },
   "overrides": [
     {
-      "files": ["*.spec.js", "*.test.js"],
+      "files": [
+        "*.spec.js",
+        "*.test.js"
+      ],
       "rules": {
         "no-magic-numbers": 0,
         "no-undefined": 0
@@ -24,7 +32,9 @@
       }
     },
     {
-      "files": ["sandbox.js"],
+      "files": [
+        "sandbox.js"
+      ],
       "rules": {
         "no-magic-numbers": 0,
         "no-console": 0,
@@ -45,7 +55,10 @@
     "plugin:sonarjs/recommended"
   ],
   "rules": {
-    "indent": ["error", 4],
+    "indent": [
+      "error",
+      4
+    ],
     "no-var": 1,
     "prefer-const": 1,
     "no-extra-parens": 1,
@@ -81,12 +94,16 @@
         "selector": "ForOfStatement"
       }
     ],
-    "camelcase": [2, { "properties": "never" }],
-
-    "prefer-arrow/prefer-arrow-functions": ["warn"],
-
+    "camelcase": [
+      2,
+      {
+        "properties": "never"
+      }
+    ],
+    "prefer-arrow/prefer-arrow-functions": [
+      "warn"
+    ],
     "sonarjs/prefer-immediate-return": 0,
-
     "jsdoc/check-alignment": 1,
     "jsdoc/check-indentation": 1,
     "jsdoc/check-line-alignment": 1,
@@ -117,6 +134,11 @@
     "jsdoc/valid-types": 1,
     "import/prefer-default-export": 0,
     "import/named": 2,
-    "import/extensions": [1, { "js": "always" }]
+    "import/extensions": [
+      1,
+      {
+        "js": "always"
+      }
+    ]
   }
 }

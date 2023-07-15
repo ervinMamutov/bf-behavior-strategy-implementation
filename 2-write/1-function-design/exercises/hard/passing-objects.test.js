@@ -1,5 +1,3 @@
-// #todo
-
 'use strict';
 
 /**
@@ -12,65 +10,84 @@
 
 // -------- your solutions --------
 
-for (const solution of [secretSolution]) {
-    describe(solution.name + ': filters out non-passing objects', () => {
-        describe('correctly filters an array', () => {
-            it('an empty array returns an empty array', () => {
-                const actual = solution(_);
-                expect(_).toEqual(_);
-            });
-            it('keeps all entries when all are passing', () => {
-                const actual = solution([{ pass: _ }, { pass: _ }]);
-                expect(actual).toEqual([{ pass: true }, { pass: true }]);
-            });
-            it('removes all entries when all are not passing', () => {
-                const actual = solution([{ pass: _ }, { pass: _ }]);
-                expect(actual).toEqual(_);
-            });
-            it('removes only not-passing entries', () => {
-                const actual = solution([
-                    { pass: true },
-                    { pass: false },
-                    { pass: true },
-                ]);
-                expect(actual).toEqual([{ _: _ }, { _: _ }]);
-            });
-            it('removes entries with a truthy, but not true, .pass value', () => {
-                const actual = solution([
-                    { pass: 100 },
-                    { pass: 'hello' },
-                    { _: _ },
-                ]);
-                expect(actual).toEqual([{ pass: true }]);
-            });
-            it('removes entries with no .pass property', () => {
-                const actual = solution([
-                    { hello: _ },
-                    { bye: _ },
-                    { pass: _ },
-                    { passing: _ },
-                ]);
-                expect(actual)._.deep._([{ pass: true }]);
-            });
-        });
-        describe('does not modify the argument', () => {
-            it('returns a new array', () => {
-                const arg = [];
-                const actual = solution(arg);
-                const areNotTheSameArray = arg !== actual;
-                expect(areNotTheSameArray).toEqual(true);
-            });
-            it('does not modify the argument', () => {
-                const arg = [
-                    { pass: true },
-                    { pass: false },
-                    { hello: 'good bye' },
-                ];
-                solution(arg);
-                expect(arg).toEqual([{ _: _ }, { _: _ }, { _: _ }]);
-            });
-        });
+const passingArray = (arr) => {
+  const newArray = [...arr];
+  const returnArray = [];
+  for (const value of newArray) {
+    for (const key in value) {
+      if (key === 'pass') {
+        if (value[key] === true) {
+          returnArray.push(value);
+        }
+      }
+    }
+  }
+  return returnArray;
+};
+
+const passingArray2 = (arr) => {
+  return [...arr].filter((value) => value.pass === true);
+};
+
+for (const solution of [passingArray2]) {
+  describe(solution.name + ': filters out non-passing objects', () => {
+    describe('correctly filters an array', () => {
+      it('an empty array returns an empty array', () => {
+        const actual = solution([]);
+        expect(solution([])).toEqual([]);
+      });
+      it('keeps all entries when all are passing', () => {
+        const actual = solution([{ pass: true }, { pass: true }]);
+        expect(actual).toEqual([{ pass: true }, { pass: true }]);
+      });
+      it('removes all entries when all are not passing', () => {
+        const actual = solution([{ pass: false }, { pass: true }]);
+        expect(actual).toEqual([{ pass: true }]);
+      });
+      it('removes only not-passing entries', () => {
+        const actual = solution([
+          { pass: true },
+          { pass: false },
+          { pass: true },
+        ]);
+        expect(actual).toEqual([{ pass: true }, { pass: true }]);
+      });
+      it('removes entries with a truthy, but not true, .pass value', () => {
+        const actual = solution([
+          { pass: 100 },
+          { pass: 'hello' },
+          { pass: true },
+        ]);
+        expect(actual).toEqual([{ pass: true }]);
+      });
+      it('removes entries with no .pass property', () => {
+        const actual = solution([
+          { hello: true },
+          { bye: false },
+          { pass: true },
+          { passing: true },
+        ]);
+        expect(actual).toEqual([{ pass: true }]);
+      });
     });
+    describe('does not modify the argument', () => {
+      it('returns a new array', () => {
+        const arg = [];
+        const actual = solution(arg);
+        const areNotTheSameArray = arg !== actual;
+        expect(areNotTheSameArray).toEqual(true);
+      });
+      it('does not modify the argument', () => {
+        const arg = [{ pass: true }, { pass: false }, { hello: 'good bye' }];
+        solution(arg);
+        expect(arg).toEqual([
+          { pass: true },
+          { pass: false },
+          { hello: 'good bye' },
+        ]);
+      });
+    });
+  });
 }
 
 // minified solution for testing your tests

@@ -1,7 +1,4 @@
-// #todo
-
 'use strict';
-
 /**
  * takes an array of strings and returns a new array of numbers
  *  the new array contains all the numbery strings, cast to numbers
@@ -13,13 +10,27 @@
  */
 
 // -------- your solutions --------
+const arrayOfNumber = (arrayOfStrings) => {
+  const result = [...arrayOfStrings];
+  return result.map(Number).filter((item) => !Number.isNaN(item));
+  /* 
+  const array = [];
+  for (const num of result) {
+    const numberString = Number(num);
+    if (!Number.isNaN(numberString)) array.push(numberString);
+  }
+  return array;
+   */
+};
 
-for (const solution of [secretSolution]) {
-    describe(solution.name + ': _', () => {
-        describe('_', () => {
-            it('_', () => {});
-        });
+for (const solution of [arrayOfNumber]) {
+  describe(solution.name + ': _', () => {
+    describe('return new array', () => {
+      it("['1', '2', 'e', '.'] -> [1, 2]", () => {
+        expect(solution(['1', '2', 'e', '.'])).toEqual([1, 2]);
+      });
     });
+  });
 }
 
 // minified solution for testing your tests
